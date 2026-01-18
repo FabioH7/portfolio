@@ -390,65 +390,196 @@ body {
    Experience Section
    ============================================ */
 
-.timeline {
+.experience-grid {
     max-width: 900px;
-    margin: 0 auto;
+    margin: var(--spacing-md) auto 0;
     position: relative;
-    padding-left: var(--spacing-md);
+    padding-left: var(--spacing-lg);
 }
 
-.timeline::before {
+.experience-grid::before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 3px;
     background: var(--primary-gradient);
+    border-radius: 2px;
 }
 
-.timeline-item {
+.experience-card {
     position: relative;
+    padding: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
-    padding-left: var(--spacing-md);
+    transition: var(--transition);
 }
 
-.timeline-item::before {
+.experience-card::before {
     content: '';
     position: absolute;
-    left: -var(--spacing-md);
-    top: 0;
+    left: calc(-1 * var(--spacing-lg) - 8px);
+    top: var(--spacing-md);
     width: 16px;
     height: 16px;
     border-radius: 50%;
     background: var(--primary-gradient);
-    border: 3px solid var(--dark-bg);
-    transform: translateX(-50%);
+    border: 4px solid var(--dark-bg);
+    box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.3);
+    z-index: 2;
 }
 
-.timeline-date {
-    color: var(--text-muted);
-    font-size: 0.9rem;
+.experience-card:hover {
+    transform: translateX(5px);
+    border-color: rgba(20, 184, 166, 0.3);
+}
+
+.experience-card:last-child {
+    margin-bottom: 0;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    gap: var(--spacing-sm);
+}
+
+.experience-title-group {
+    flex: 1;
+}
+
+.experience-title {
+    font-size: 1.75rem;
     margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+    font-weight: 700;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.experience-company {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0;
+}
+
+.experience-badge {
+    padding: 0.5rem 1rem;
+    background: rgba(20, 184, 166, 0.15);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    border-radius: 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.badge-text {
+    color: rgba(20, 184, 166, 1);
+    font-size: 0.875rem;
     font-weight: 600;
 }
 
-.timeline-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-xs);
-    color: var(--text-primary);
-}
-
-.timeline-content h4 {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-sm);
+.experience-date {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
     font-weight: 500;
 }
 
-.timeline-content p {
-    color: var(--text-muted);
+.date-icon {
+    font-size: 1rem;
+}
+
+.experience-projects {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.project-item {
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    transition: var(--transition);
+}
+
+.project-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-tech-badge {
+    padding: 0.35rem 0.75rem;
+    background: rgba(20, 184, 166, 0.15);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    color: rgba(20, 184, 166, 1);
+    font-weight: 600;
+}
+
+.project-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.project-description {
+    color: var(--text-secondary);
     line-height: 1.7;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.experience-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.experience-description p {
+    margin-bottom: var(--spacing-md);
+}
+
+.experience-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+}
+
+.skill-chip {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.skill-chip:hover {
+    background: rgba(20, 184, 166, 0.15);
+    border-color: rgba(20, 184, 166, 0.3);
+    transform: translateY(-2px);
 }
 
 /* ============================================
@@ -1011,12 +1142,28 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .timeline {
-        padding-left: var(--spacing-sm);
+    .experience-grid {
+        padding-left: var(--spacing-md);
     }
 
-    .timeline-item {
-        padding-left: var(--spacing-md);
+    .experience-grid::before {
+        width: 2px;
+    }
+
+    .experience-card::before {
+        left: calc(-1 * var(--spacing-md) - 6px);
+        width: 12px;
+        height: 12px;
+        border-width: 3px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .experience-badge {
+        margin-top: var(--spacing-xs);
     }
 }
 
@@ -1046,6 +1193,30 @@ body {
 
     .project-content {
         padding: var(--spacing-md);
+    }
+
+    .experience-grid {
+        padding-left: var(--spacing-sm);
+    }
+
+    .experience-grid::before {
+        width: 2px;
+    }
+
+    .experience-card::before {
+        left: calc(-1 * var(--spacing-sm) - 5px);
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+    }
+
+    .experience-title {
+        font-size: 1.5rem;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .project-content h3 {
